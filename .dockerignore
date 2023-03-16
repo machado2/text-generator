@@ -1,0 +1,14 @@
+# Ignore node_modules directory and its contents
+node_modules/
+
+build/
+
+# Ignore Python virtual environment directory and its contents
+venv/
+
+# Ignore any files and directories that are not required for the Docker image
+.git/
+.vscode/
+*.pyc
+__pycache__/
+.DS_Store

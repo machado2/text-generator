@@ -1,0 +1,45 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2em;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+  margin: 1em;
+}
+
+.output {
+  flex-grow: 1;
+  margin: 1em;
+}
+
+.generateButton {
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  background-color: #6d9eeb;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  align-self: center;
+}
+
+.generateButton:hover {
+  background-color: #4285f4;
+}
