@@ -7,6 +7,13 @@
   box-sizing: border-box;
 }
 
+.appcontainer {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
 h1 {
   font-size: 2rem;
   margin-bottom: 20px;
@@ -14,14 +21,16 @@ h1 {
 }
 
 .input {
-  width: 100%;
+  width: calc(100% - 4em);
   height: 150px;
   padding: 10px;
+  margin: 2em;
   font-size: 1.2rem;
   border: 1px solid #ccc;
   border-radius: 5px;
   resize: none;
   margin: 1em;
+  box-sizing: border-box;
 }
 
 .output {
@@ -29,7 +38,7 @@ h1 {
   margin: 1em;
 }
 
-.generateButton {
+.button {
   padding: 10px;
   font-size: 1.2rem;
   border-radius: 5px;
@@ -41,6 +50,58 @@ h1 {
   white-space: "pre-wrap";
 }
 
-.generateButton:hover {
+.button:hover {
   background-color: #4285f4;
+}
+
+.generationcontainer {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.history {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  width : 20%;
+  margin: 1em;
+  padding: 1em;
+  height: 100%;
+  border-right: 1px solid #ccc;
+  padding-right: 1em;
+}
+
+.historylistcontainer {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 1em;
+}
+
+.history ul {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.history li {
+  cursor: pointer;
+  margin: 0.5em 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 10em;
+  overflow: hidden;
+}
+
+.history li:hover {
+  background-color: #f3f3f3;
+}
+
+.history li strong {
+  font-weight: bold;
 }
