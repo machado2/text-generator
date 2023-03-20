@@ -5,8 +5,11 @@ from flask_cors import CORS
 import sys
 from transformers import pipeline
 
-# generator = pipeline("text-generation", model="gpt2-medium", device=-1)
-generator = pipeline("text-generation", model="distilgpt2", device=-1)
+# if cuda is available, use gpt2-large, otherwise use distilgpt2
+if torch.cuda.is_available():
+    generator = pipeline('text-generation', model='gpt2-large')
+else:
+    generator = pipeline('text-generation', model='distilgpt2')
 
 app = Flask(__name__, static_folder='ui', static_url_path='/ui')
 CORS(app)
@@ -29,4 +32,4 @@ def handle_generate_text():
     return jsonify({'generated_text': generated_text})
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=80)

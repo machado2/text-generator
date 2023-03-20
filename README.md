@@ -1,6 +1,6 @@
 # Chatto Text Generation
 
-This is a simple web app that generates text using the the DistilGPT2 model from Hugging Face. It consists of a Flask backend and a React frontend.
+This is a simple web app that generates text using the gpt2 model. It consists of a Flask backend and a React frontend.
 
 ## Requirements
 
