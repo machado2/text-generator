@@ -38,6 +38,7 @@ h1 {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   align-self: center;
+  white-space: "pre-wrap";
 }
 
 .generateButton:hover {

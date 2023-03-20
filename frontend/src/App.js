@@ -14,13 +14,22 @@ function App() {
   const handleGenerate = async () => {
     setIsGenerating(true);
     setGeneratedText('Generating...');
-
+  
     try {
       const response = await axios.post(API_URL, {
         prompt: inputText
       });
-
-      setGeneratedText(response.data.generated_text);
+  
+      const generatedText = response.data.generated_text;
+      const promptIndex = generatedText.indexOf(inputText);
+      const outputText = (
+        <>
+          {generatedText.slice(0, promptIndex)}
+          <b>{generatedText.slice(promptIndex, promptIndex + inputText.length)}</b>
+          {generatedText.slice(promptIndex + inputText.length)}
+        </>
+      );
+      setGeneratedText(outputText);
     } catch (error) {
       console.error(error);
       setGeneratedText('Error generating text.');
@@ -52,7 +61,7 @@ function App() {
       <button className="generateButton" onClick={handleGenerate}>
         Generate
       </button>
-      <div className="output" dangerouslySetInnerHTML={{ __html: generatedText }}></div>
+      <div className="output">{generatedText}</div>
     </div>
   );
 }

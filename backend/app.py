@@ -5,6 +5,7 @@ from flask_cors import CORS
 import sys
 from transformers import pipeline
 
+# generator = pipeline("text-generation", model="gpt2-medium", device=-1)
 generator = pipeline("text-generation", model="distilgpt2", device=-1)
 
 app = Flask(__name__, static_folder='ui', static_url_path='/ui')
@@ -20,12 +21,9 @@ def redirect_to_index():
 def handle_generate_text():
     prompt = request.json['prompt']
     max_length = 200
-    temperature = 0.9
-    top_k = 40
-    top_p = 0.9
 
     # Generate text
-    generated_text = generator(prompt, max_length=max_length, temperature=temperature, top_k=top_k, top_p=top_p)[0]['generated_text']
+    generated_text = generator(prompt, max_length=max_length)[0]['generated_text']
 
     # Return the generated text
     return jsonify({'generated_text': generated_text})

@@ -6,6 +6,7 @@ RUN npm install && npm run build
 
 # Final stage for the backend
 FROM python:3
+RUN pip3 install torch --index-url https://download.pytorch.org/whl/cu117
 WORKDIR /app
 COPY backend/requirements.txt /app/
 RUN pip install -r requirements.txt
