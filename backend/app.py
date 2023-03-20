@@ -3,6 +3,7 @@ import requests
 from flask import Flask, request, jsonify, send_from_directory, redirect, Response
 from flask_cors import CORS
 import sys
+import torch
 from transformers import pipeline
 
 # if cuda is available, use gpt2-large, otherwise use distilgpt2
